@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .profile-header {
+            background: linear-gradient(135deg, #808080 0%, #6b7280 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 4px solid rgba(255,255,255,0.3);
+        }
+
+        .profile-avatar i {
+            font-size: 60px;
+            color: #808080;
+        }
+
+        .profile-name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profile-email {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .info-group {
+            margin-bottom: 20px;
+        }
+
+        .info-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .edit-btn {
+            background: #808080;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .edit-btn:hover {
+            background: #6b7280;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(128,128,128,0.3);
+        }
+
+        .stats-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stats-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(128,128,128,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .stats-icon i {
+            font-size: 24px;
+            color: #808080;
+        }
+
+        .stats-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .stats-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .order-item-small {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .order-item-small img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+        }
+
+        .modal-header {
+            background: #808080;
+            color: white;
+            border: none;
+            padding: 20px 25px;
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #808080;
+            box-shadow: 0 0 0 3px rgba(128,128,128,0.1);
+        }
+
+        .save-btn {
+            background: #808080;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .save-btn:hover {
+            background: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                padding: 30px 20px;
+            }
+
+            .profile-name {
+                font-size: 24px;
+            }
+
+            .profile-avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-avatar i {
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg m-0 p-0">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/img/Untitled design (25)-Picsart-BackgroundRemover.png" alt="Logo" class="d-inline-block" style="width:100px; height:100px; margin: 0; padding:2px;">
+    </a>
+    
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Main Navigation Links -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="new_arrival.html">New Arrivals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="men.html">Men Watch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="women.html">Ladies Watch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+      
+      <!-- Right Side: Auth Links + Cart + Orders -->
+      <div class="ms-auto d-flex gap-3 align-items-center">
+        
+        <!-- Login/Register Button (visible when NOT logged in) -->
+        <div class="auth-links" id="loginRegisterBtn">
+          <a href="login.html" class="btn" style="background-color: #808080; color: white; padding: 8px 20px; border-radius: 4px; font-weight: 500; text-decoration: none; border: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-user"></i>
+            <span>Login / Register</span>
+          </a>
+        </div>
+        
+        <!-- User Dropdown (visible when logged in) -->
+        <div class="user-links" id="userDropdownMenu" style="display: none;">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" 
+                    data-bs-toggle="dropdown" style="background-color: #808080; color: white; padding: 8px 15px; border-radius: 4px; font-weight: 500; border: none; transition: all 0.3s ease;">
+              <i class="fas fa-user-circle me-2"></i>
+              <span id="userName">User</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" 
+                style="border: 1px solid #808080; border-radius: 8px; padding: 10px 0; min-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-top: 10px;">
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="profile.html" style="padding: 10px 15px; color: #333; text-decoration: none; transition: all 0.3s;">
+                  <i class="fas fa-user me-3" style="width: 20px; text-align: center;"></i>
+                  <span>My Profile</span>
+                </a>
+              </li>
+              
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="order-history.html" style="padding: 10px 15px; color: #333; text-decoration: none; transition: all 0.3s;">
+                  <i class="fas fa-history me-3" style="width: 20px; text-align: center;"></i>
+                  <span>My Orders</span>
+                </a>
+              </li>
+              <li>
+                <div class="cart-btn-wrapper" id="cartButtonContainer" style="display: none;">
+          <a href="#" class="btn cart-btn" id="mainCartBtn" 
+             style="color: #070745; padding: 8px 15px; border-radius: 4px; text-decoration: none; display: flex; align-items: center; gap: 5px; position: relative;">
+            <i class="bi bi-cart" style="font-size: 22px;"></i>
+            <span>Cart</span>
+            <span class="cart-badge" style="position: absolute; top: -5px; right: -5px; background-color: #dc3545; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: none; align-items: center; justify-content: center;">0</span>
+          </a>
+        </div>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-danger" href="#" id="logoutBtn" style="padding: 10px 15px; text-decoration: none; transition: all 0.3s;">
+                  <i class="fas fa-sign-out-alt me-3" style="width: 20px; text-align: center;"></i>
+                  <span>Logout</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <!-- Profile Content -->
+    <div class="profile-container">
+        <div class="profile-header text-center text-md-start">
+            <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-4">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div>
+                    <h1 class="profile-name" id="profileName">Loading...</h1>
+                    <p class="profile-email" id="profileEmail">Loading...</p>
+                    <p class="profile-email">Member since: <span id="profileJoined">Loading...</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Personal Information -->
+                <div class="profile-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Personal Information</h5>
+                        <button class="btn btn-sm btn-outline-secondary" id="editProfileBtn">
+                            <i class="fas fa-edit me-2"></i>Edit
+                        </button>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="info-group">
+                                <div class="info-label">Full Name</div>
+                                <div class="info-value" id="displayName">-</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-group">
+                                <div class="info-label">Email Address</div>
+                                <div class="info-value" id="displayEmail">-</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-group">
+                                <div class="info-label">Member Since</div>
+                                <div class="info-value" id="displayJoined">-</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-group">
+                                <div class="info-label">Total Orders</div>
+                                <div class="info-value" id="displayTotalOrders">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders -->
+                <div class="profile-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Recent Orders</h5>
+                        <a href="order-history.html" class="btn btn-sm btn-outline-secondary">
+                            View All <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                    
+                    <div id="recentOrdersList" class="mt-3">
+                        <p class="text-muted text-center py-3">Loading recent orders...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Stats Cards -->
+                <div class="stats-card mb-4">
+                    <div class="stats-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stats-number" id="statTotalOrders">0</div>
+                    <div class="stats-label">Total Orders</div>
+                </div>
+
+                <div class="stats-card mb-4">
+                    <div class="stats-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stats-number" id="statPendingOrders">0</div>
+                    <div class="stats-label">Pending Orders</div>
+                </div>
+
+                <div class="stats-card mb-4">
+                    <div class="stats-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stats-number" id="statCompletedOrders">0</div>
+                    <div class="stats-label">Completed Orders</div>
+                </div>
+
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="stats-number" id="statTotalSpent">Rs 0</div>
+                    <div class="stats-label">Total Spent</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-user-edit me-2"></i>
+                        Edit Profile
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProfileForm">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="editName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="editEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Current Password</label>
+                            <input type="password" class="form-control" id="editCurrentPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">New Password (leave blank to keep current)</label>
+                            <input type="password" class="form-control" id="editNewPassword">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Confirm New Password</label>
+                            <input type="password" class="form-control" id="editConfirmPassword">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn save-btn" id="saveProfileBtn">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-receipt me-2"></i>
+                        Order Details
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="orderDetailsContent">
+                    <div class="text-center py-4">
+                        <i class="fas fa-spinner fa-spin fa-3x" style="color: #808080;"></i>
+                        <p class="mt-3">Loading order details...</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid bg-light py-4 mt-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <img src="assets/img/Untitled design (25)-Picsart-BackgroundRemover.png" alt="Logo" style="width:150px;">
+            </div>
+            <div class="col-lg-3">
+                <p class="fw-bold">About</p>
+                <p style="color:#808080;">Watch websites offer authentic, stylish, and tech-savvy timepieces for all kinds of buyers.</p>
+            </div>
+            <div class="col-lg-3">
+                <p class="fw-bold">Pages</p>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="text-decoration-none" style="color:#808080;">Home</a></li>
+                    <li><a href="about.html" class="text-decoration-none" style="color:#808080;">About</a></li>
+                    <li><a href="new_arrival.html" class="text-decoration-none" style="color:#808080;">New Arrival</a></li>
+                    <li><a href="men.html" class="text-decoration-none" style="color:#808080;">Men</a></li>
+                    <li><a href="women.html" class="text-decoration-none" style="color:#808080;">Women</a></li>
+                    <li><a href="contact.html" class="text-decoration-none" style="color:#808080;">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h5 class="mb-4">Contact</h5>
+                <p style="color: #808080;">+92-314-0132-156</p>
+                <div>
+                    <a href="#" class="me-2" style="color:#808080;"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="me-2" style="color:#808080;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="me-2" style="color:#808080;"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" style="color:#808080;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/checkout.js"></script>
+    <script src="assets/js/profile.js"></script>
+</body>
+</html>

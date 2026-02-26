@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Infinite Text Scroller</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body style="background-color:#F1F3F4;">
+  <!-- <div class="text-scroller">
+    <div class="text-scroller-inner"> -->
+      <!-- Repeated items -->
+      <!-- <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+    </div>
+  </div> -->
+  <!-- Remove margin and padding -->
+<nav class="navbar navbar-expand-lg m-0 p-0">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/img/Untitled design (25)-Picsart-BackgroundRemover.png" alt="Logo" class="d-inline-block" style="width:100px; height:100px; margin: 0; padding:2px;">
+    </a>
+    
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Main Navigation Links -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="new_arrival.html">New Arrivals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="men.html">Men Watch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="women.html">Ladies Watch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+      
+      <!-- Right Side: Auth Links + Cart + Orders -->
+      <div class="ms-auto d-flex gap-3 align-items-center">
+        
+        <!-- Login/Register Button (visible when NOT logged in) -->
+        <div class="auth-links" id="loginRegisterBtn">
+          <a href="login.html" class="btn" style="background-color: #808080; color: white; padding: 8px 20px; border-radius: 4px; font-weight: 500; text-decoration: none; border: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-user"></i>
+            <span>Login / Register</span>
+          </a>
+        </div>
+        
+        <!-- User Dropdown (visible when logged in) -->
+        <div class="user-links" id="userDropdownMenu" style="display: none;">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" 
+                    data-bs-toggle="dropdown" style="background-color: #808080; color: white; padding: 8px 15px; border-radius: 4px; font-weight: 500; border: none; transition: all 0.3s ease;">
+              <i class="fas fa-user-circle me-2"></i>
+              <span id="userName">User</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" 
+                style="border: 1px solid #808080; border-radius: 8px; padding: 10px 0; min-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-top: 10px;">
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="profile.html" style="padding: 10px 15px; color: #333; text-decoration: none; transition: all 0.3s;">
+                  <i class="fas fa-user me-3" style="width: 20px; text-align: center;"></i>
+                  <span>My Profile</span>
+                </a>
+              </li>
+              
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="order-history.html" style="padding: 10px 15px; color: #333; text-decoration: none; transition: all 0.3s;">
+                  <i class="fas fa-history me-3" style="width: 20px; text-align: center;"></i>
+                  <span>My Orders</span>
+                </a>
+              </li>
+              <li>
+                <div class="cart-btn-wrapper" id="cartButtonContainer" style="display: none;">
+          <a href="#" class="btn cart-btn" id="mainCartBtn" 
+             style="color: #070745; padding: 8px 15px; border-radius: 4px; text-decoration: none; display: flex; align-items: center; gap: 5px; position: relative;">
+            <i class="bi bi-cart" style="font-size: 22px;"></i>
+            <span>Cart</span>
+            <span class="cart-badge" style="position: absolute; top: -5px; right: -5px; background-color: #dc3545; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: none; align-items: center; justify-content: center;">0</span>
+          </a>
+        </div>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-danger" href="#" id="logoutBtn" style="padding: 10px 15px; text-decoration: none; transition: all 0.3s;">
+                  <i class="fas fa-sign-out-alt me-3" style="width: 20px; text-align: center;"></i>
+                  <span>Logout</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  
+<div class="text-scroller" style="background-color:#808080;">
+    <div class="text-scroller-inner"> 
+       <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+      <div class="text-item"><p>FREE SHIPPING - DELIVERY TIME 3-5 WORKING DAYS</p></div>
+    </div>
+  </div> 
+   
+
+  <div class="container pt-4 pb-4">
+    <div class="row" id="my_product">
+       
+    </div>
+  </div>
+
+
+  <script>
+    var card = document.getElementById("my_product")
+    fetch("data.json")
+    .then((a)=>{
+      return a.json()
+    })
+    .then((b)=>{
+      let watchs = b.filter((product) => product.watch_name.toLowerCase().includes("classy"));
+      watchs.forEach((classy)=>{
+        console.log(classy)
+        card.innerHTML+=`
+        <div class="col-lg-3 col-md-4 col-sm-6 justify-content-center g-4 mt-3">
+      <div class="product-items border position-relative" style="background-color:#E2E2E2;">
+        <div class="discount-tag">30% OFF</div>
+        <div class="wishlist-icon">
+          <i class="fa fa-heart"></i>
+        </div>
+    
+        <div class="product-img">
+                <img src="assets/imgs2/${classy.img}" class="img-fluid d-block mx-auto img" alt="" style="mix-blend-mode: darken;">
+                <div class="product-imgeess">
+                <img src="assets/imgs2/${classy.img1}" class="img-fluid d-block mx-auto imgessss" alt="" style="mix-blend-mode: darken;">
+              </div>
+              </div>
+    
+        <div class="product-title-con text-center mb-2 mt-0">
+          <h6 class="fw-bolder mt-2">${classy.watch_name}</h6>
+          <span class="pricesss">Rs : ${classy.watch_price}</span>
+        </div>
+    
+        <div class="product_button_1 d-flex justify-content-center">
+          <a href="Product-Datail.html?id=${classy.id}" class="button1 mb-3 me-2 text-decoration-none d-inline-flex align-items-center" style="background-color:#808080;">
+            <i class="fa-solid fa-eye me-2"></i>Overview
+          </a>
+          <button class="button1 mb-3 text-decoration-none d-inline-flex align-items-center add-to-cart-btn" style="background-color:#808080; border: none;" data-product-id="${classy.id}">
+    <i class="fa-solid fa-cart-plus me-2"></i>Add Cart
+</button>
+        </div>
+      </div>
+    </div>
+        `
+      })
+    })
+  </script>
+ <style>
+  .product_button_1 {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+ </style>
+    <div class="container-fluid con22">
+      <div class="row r11">
+        <div class="col-lg-3">
+          <a class="navbar-brand" href="#">
+            <img src="assets/img/Untitled design (25)-Picsart-BackgroundRemover.png" alt="Logo" class="d-inline-block" style="width:150px; height:150px; margin: 0; padding:2px;">
+          </a>
+        </div>
+        <div class="col-lg-3">
+          <p class="mt-3 text-center p5">About</p>
+          <p class="" style="color:#808080;">Watch websites offer authentic, stylish, and tech-savvy timepieces for all kinds of buyers.  
+            From luxury to unique designs, they blend trust, innovation, and passion for watches.</p>
+        </div>
+        <div class="col-lg-3">
+          <p class="mt-3 text-center p5">Pages</p>
+          <ul class="ul1">
+            <li class="text-center"><a href="">Home</a></li>
+            <li class="text-center"><a href="">About</a></li>
+            <li class="text-center"><a href="">New Arrival</a></li>
+            <li class="text-center"><a href="">Men</a></li>
+            <li class="text-center"><a href="">Women</a></li>
+            <li class="text-center"><a href="">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h5 class="ms-4 mb-4 p5 mt-3 text">Contact</h5>
+                  <p class="mb-4 ms-3" style="color: #808080;">+92-314-0132-156</p>
+                  <div class="links">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube"></i></a>
+                  </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/auth.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/checkout.js"></script>
+</body>
+</html>

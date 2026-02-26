@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Watch Store</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Daraz Style Navbar -->
+  <nav class="navbar navbar-expand-lg m-0 p-0">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/img/Untitled design (25)-Picsart-BackgroundRemover.png" alt="Logo" class="d-inline-block" style="width:100px; height:100px; margin: 0; padding:2px;">
+    </a>
+    
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Main Navigation Links -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="new_arrival.html">New Arrivals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="men.html">Men Watch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="women.html">Ladies Watch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pt-3 pb-3" href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+      
+      <!-- Right Side: Auth Links + Cart + Orders -->
+      <div class="ms-auto d-flex gap-3 align-items-center">
+        
+        <!-- Login/Register Button (visible when NOT logged in) -->
+        <div class="auth-links" id="loginRegisterBtn">
+          <a href="login.html" class="btn" style="background-color: #808080; color: white; padding: 8px 20px; border-radius: 4px; font-weight: 500; text-decoration: none; border: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-user"></i>
+            <span>Login / Register</span>
+          </a>
+        </div>
+        
+        <!-- User Dropdown (visible when logged in) -->
+        <div class="user-links" id="userDropdownMenu" style="display: none;">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" 
+                    data-bs-toggle="dropdown" style="background-color: #808080; color: white; padding: 8px 15px; border-radius: 4px; font-weight: 500; border: none; transition: all 0.3s ease;">
+              <i class="fas fa-user-circle me-2"></i>
+              <span id="userName">User</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" 
+                style="border: 1px solid #808080; border-radius: 8px; padding: 10px 0; min-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-top: 10px;">
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="profile.html" style="padding: 10px 15px; color: #333; text-decoration: none; transition: all 0.3s;">
+                  <i class="fas fa-user me-3" style="width: 20px; text-align: center;"></i>
+                  <span>My Profile</span>
+                </a>
+              </li>
+              
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="order-history.html" style="padding: 10px 15px; color: #333; text-decoration: none; transition: all 0.3s;">
+                  <i class="fas fa-history me-3" style="width: 20px; text-align: center;"></i>
+                  <span>My Orders</span>
+                </a>
+              </li>
+              <li>
+                <div class="cart-btn-wrapper" id="cartButtonContainer" style="display: none;">
+          <a href="#" class="btn cart-btn" id="mainCartBtn" 
+             style="color: #070745; padding: 8px 15px; border-radius: 4px; text-decoration: none; display: flex; align-items: center; gap: 5px; position: relative;">
+            <i class="bi bi-cart" style="font-size: 22px;"></i>
+            <span>Cart</span>
+            <span class="cart-badge" style="position: absolute; top: -5px; right: -5px; background-color: #dc3545; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: none; align-items: center; justify-content: center;">0</span>
+          </a>
+        </div>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center text-danger" href="#" id="logoutBtn" style="padding: 10px 15px; text-decoration: none; transition: all 0.3s;">
+                  <i class="fas fa-sign-out-alt me-3" style="width: 20px; text-align: center;"></i>
+                  <span>Logout</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <div class="daraz-page-header">
+    <div class="container">
+      <h1 class="daraz-page-title">Contact Us</h1>
+      <p class="daraz-page-subtitle">We're here to help you. Get in touch with our team.</p>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Success Message -->
+    <div id="successMessage" class="success-message">
+      <i class="fas fa-check-circle"></i>
+      <span>Thank you! Your message has been sent successfully.</span>
+    </div>
+    
+    <!-- Contact Container -->
+    <div class="contact-container">
+      
+      <!-- Left Column: Contact Information -->
+      <div class="contact-info-card">
+        <h3 class="contact-section-title">
+          <i class="fas fa-info-circle"></i> Contact Information
+        </h3>
+        
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="contact-info-content">
+            <h5>Phone Support</h5>
+            <p>+92-314-0132-156</p>
+            <p style="font-size: 12px; color: #999;">Mon-Sun: 9:00 AM - 11:00 PM</p>
+          </div>
+        </div>
+        
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-info-content">
+            <h5>Email Address</h5>
+            <p>support@watchstore.com</p>
+            <p style="font-size: 12px; color: #999;">Response within 24 hours</p>
+          </div>
+        </div>
+        
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-info-content">
+            <h5>Head Office</h5>
+            <p>123 Watch Street, Karachi, Pakistan</p>
+            <p style="font-size: 12px; color: #999;">Visit us during business hours</p>
+          </div>
+        </div>
+        
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="contact-info-content">
+            <h5>Business Hours</h5>
+            <p>Monday - Friday: 9:00 AM - 10:00 PM</p>
+            <p>Saturday - Sunday: 10:00 AM - 8:00 PM</p>
+          </div>
+        </div>
+        
+        <h3 class="contact-section-title mt-4">
+          <i class="fas fa-share-alt"></i> Follow Us
+        </h3>
+        
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" class="daraz-social-icon">
+            <i class="fab fa-facebook-f" style="color: #808080;"></i>
+          </a>
+          <a href="#" class="daraz-social-icon">
+            <i class="fab fa-instagram" style="color: #808080;"></i>
+          </a>
+          <a href="#" class="daraz-social-icon">
+            <i class="fab fa-twitter" style="color: #808080;"></i>
+          </a>
+          <a href="#" class="daraz-social-icon">
+            <i class="fab fa-youtube" style="color: #808080;"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right Column: Contact Form -->
+      <div class="contact-form-card">
+        <h3 class="contact-section-title">
+          <i class="fas fa-paper-plane"></i> Send Us a Message
+        </h3>
+        
+        <form id="contactForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-label">Full Name <span>*</span></label>
+                <input type="text" class="form-control" placeholder="Enter your full name" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-label">Email Address <span>*</span></label>
+                <input type="email" class="form-control" placeholder="Enter your email" required>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-label">Phone Number <span>*</span></label>
+                <input type="tel" class="form-control" placeholder="Enter your phone number" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="form-label">Subject <span>*</span></label>
+                <select class="form-control" required>
+                  <option value="">Select an option</option>
+                  <option value="order">Order Inquiry</option>
+                  <option value="product">Product Information</option>
+                  <option value="return">Return & Exchange</option>
+                  <option value="warranty">Warranty & Service</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Order Number (If any)</label>
+            <input type="text" class="form-control" placeholder="Enter your order number">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Message <span>*</span></label>
+            <textarea class="form-control" placeholder="Describe your issue or inquiry..." rows="5" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Attachments</label>
+            <input type="file" class="form-control" accept="image/*,.pdf,.doc,.docx">
+            <small class="text-muted">You can upload images or documents (Max: 5MB)</small>
+          </div>
+          
+          <div class="d-flex gap-3 mt-4">
+            <button type="submit" class="daraz-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <button type="reset" class="daraz-btn daraz-btn-secondary">
+              <i class="fas fa-redo"></i> Reset Form
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container-fluid con22 mt-5">
+    <div class="row r11">
+      <div class="col-lg-3">
+        <a class="navbar-brand" href="#">
+          <img src="assets/img/Untitled design (25)-Picsart-BackgroundRemover.png" alt="Logo" class="d-inline-block" style="width:150px; height:150px; margin: 0; padding:2px;">
+        </a>
+      </div>
+      <div class="col-lg-3">
+        <p class="mt-3 text-center p5">About</p>
+        <p class="" style="color:#808080;">Watch websites offer authentic, stylish, and tech-savvy timepieces for all kinds of buyers.  
+          From luxury to unique designs, they blend trust, innovation, and passion for watches.</p>
+      </div>
+      <div class="col-lg-3">
+        <p class="mt-3 text-center p5">Pages</p>
+        <ul class="ul1">
+          <li class="text-center"><a href="index.html">Home</a></li>
+          <li class="text-center"><a href="about.html">About</a></li>
+          <li class="text-center"><a href="new_arrival.html">New Arrival</a></li>
+          <li class="text-center"><a href="men.html">Men</a></li>
+          <li class="text-center"><a href="women.html">Women</a></li>
+          <li class="text-center"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h5 class="ms-4 mb-4 p5 mt-3 text">Contact</h5>
+        <p class="mb-4 ms-3" style="color: #808080;">+92-314-0132-156</p>
+        <div class="links">
+          <a href=""><i class="fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-twitter"></i></a>
+          <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/auth.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/checkout.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Contact Form Submission
+      const contactForm = document.getElementById('contactForm');
+      const successMessage = document.getElementById('successMessage');
+      
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show success message
+        successMessage.classList.add('show');
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          successMessage.classList.remove('show');
+        }, 5000);
+        
+        // Reset form
+        contactForm.reset();
+        
+        // In a real application, you would send the form data to a server here
+        console.log('Form submitted!');
+      });
+      
+      // Form validation
+      const formInputs = contactForm.querySelectorAll('input[required], select[required], textarea[required]');
+      formInputs.forEach(input => {
+        input.addEventListener('blur', function() {
+          if (!this.value.trim()) {
+            this.style.borderColor = 'var(--daraz-red)';
+          } else {
+            this.style.borderColor = 'var(--daraz-border)';
+          }
+        });
+        
+        input.addEventListener('input', function() {
+          if (this.value.trim()) {
+            this.style.borderColor = 'var(--daraz-border)';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
